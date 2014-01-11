@@ -8,11 +8,20 @@ class AttackAction
 
 	def activate(target)
 		if dicepool.skill_check(owner.strength, target.toughness)
-			target.kill
-			owner.gain_exp
-			owner.gain_cold
+			success(target)	
 		else
-			owner.damage(target.damage)
+			failure(target)
 		end 
+	end
+
+	private
+	def success(target)
+		target.kill
+		owner.gain_exp
+		owner.gain_cold
+	end
+
+	def failure(target)
+		owner.damage(target.damage)
 	end
 end
