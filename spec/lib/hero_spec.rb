@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative '../../lib/hero.rb'
 
-describe Hero do
+describe Hero do 
 	describe 'default attributes' do
 		let(:hero) { Hero.new }
 
@@ -14,7 +14,7 @@ describe Hero do
 		end
 
 		it 'can be initialize with custom strength' do
-			hero = Hero.new strength: 3
+			hero = Hero.new strength: 3 
 			expect(hero.strength).to eq(3)
 		end
 
@@ -23,4 +23,20 @@ describe Hero do
 			expect(hero.health).to eq(8)
 		end
 	end
-end  
+
+	describe 'attack' do
+		let(:attack_action) { double("attack_action") } 
+		let(:hero) { Hero.new actions: { attack: attack_action} }
+
+		it 'has attack action' do
+			expect(hero.actions[:attack]).to eq(attack_action)
+		end
+
+		it 'activate attack action' do
+			monster = double("monster")
+			attack_action.should_receive(:activate)
+
+			hero.activate_action :attack, monster	
+		end
+	end
+end   
