@@ -10,7 +10,21 @@ describe FleeAction do
 		damage: 4) } 
 	 
 	describe "effect" do
-	
+		context "success" do
+			it "sends flee message to the owner" do
+				dicepool.stub(:skill_check).and_return(true)
+				hero.should_receive(:flee)
+				action.activate(monster)
+			end
+		end
+
+		context "failure" do
+			it "deals damage to the owner" do
+				dicepool.stub(:skill_check).and_return(false)
+				hero.should_receive(:damage).with(monster.damage)
+				action.activate(monster)
+			end
+		end
 	end
 
 	describe "activate" do

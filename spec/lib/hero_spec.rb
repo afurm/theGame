@@ -14,6 +14,10 @@ describe Hero do
 			expect(hero.health).to eq(10)
 		end
 
+		it 'has default stealth equal to 1' do
+			expect(hero.stealth).to eq(1)
+		end
+
 		it 'has default gold equal to 0' do
 			expect(hero.gold).to eq(0)
 		end
@@ -49,6 +53,17 @@ describe Hero do
 		hero.gain_exp(10)
 		hero.gain_exp(5)
 		expect(hero.exp).to eq(15)
+	end
+
+	describe 'flee state' do
+		it 'does not flee bu default' do
+			expect(hero.fled?).to be_false
+		end
+
+		it 'flees from battle' do
+			hero.flee
+			expect(hero.fled?).to be_true
+		end
 	end
 
 	describe 'attack' do
