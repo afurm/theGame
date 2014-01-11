@@ -2,16 +2,16 @@ require_relative 'action.rb'
 
 class FleeAction < Action
 
-	def action_attributes
-		@attribute = :stealth
-		@difficulty = :notice
-	end
+  def action_attributes
+    @attribute = :stealth
+    @difficulty = :notice
+  end
 
-	def success(target) 
-		owner.flee
-	end
+  def success(target) 
+    owner.flee
+  end
 
-	def failure(target)
-		owner.damage(target.damage)
-	end
+  def failure(target)
+    owner.damage(target.damage)
+  end
 end

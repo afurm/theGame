@@ -2,19 +2,19 @@ require 'spec_helper'
 require_relative '../../lib/dicepool.rb'
 
 describe Dicepool do
-	describe 'skill_check' do
-		it 'returns true if number of success is more than difficulty' do
-			dicepool = Dicepool.new
-			dicepool.stub(:roll_die).and_return(5)
+  describe 'skill_check' do
+    it 'returns true if number of success is more than difficulty' do
+      dicepool = Dicepool.new
+      dicepool.stub(:roll_die).and_return(5)
 
-			expect(dicepool.skill_check(3,2)).to be_true
-		end
+      expect(dicepool.skill_check(3,2)).to be_true
+    end
 
-		it 'returns false if number of success is less than difficulty' do
-			dicepool = Dicepool.new
-			dicepool.stub(:roll_die).and_return(2)
+    it 'returns false if number of success is less than difficulty' do
+      dicepool = Dicepool.new
+      dicepool.stub(:roll_die).and_return(2)
 
-			expect(dicepool.skill_check(3,2)).to be_false
-		end
-	end	
+      expect(dicepool.skill_check(3,2)).to be_false
+    end
+  end 
 end
