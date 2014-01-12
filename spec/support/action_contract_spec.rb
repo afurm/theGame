@@ -1,7 +1,7 @@
 shared_examples "actionable" do
 
 	it "responds to action_attributes" do
-		expect(action).to respond_to(:action_attributes)
+		expect(action).to respond_to(:action_attributes) 
 	end
 
 	it "responds to success" do
