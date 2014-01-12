@@ -69,7 +69,6 @@ describe Hero do
   describe 'attack' do
     let(:attack_action) { double("attack_action") } 
     let(:hero) { Hero.new actions: { attack: attack_action} }
-
     it 'has attack action' do
       expect(hero.actions[:attack]).to eq(attack_action)
     end

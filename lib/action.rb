@@ -22,6 +22,10 @@ module Actionable
     end 
   end
 
+  def asign_owner(owner)
+    @owner = owner
+  end
+
   def success
   end
   

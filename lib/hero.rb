@@ -8,12 +8,18 @@
     @actions = attr.fetch(:actions, {})
     @stealth = attr.fetch(:stealth, 1)
     
+    own_actions
+
     @gold = 0
     @exp = 0
 
     @fled = false
   end
 
+  def own_actions
+    @actions.each { |key, action| action.asign_owner(self)}
+  end
+  
   def fled? 
     @fled
   end

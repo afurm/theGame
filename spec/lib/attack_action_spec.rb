@@ -3,11 +3,11 @@ require_relative '../../lib/attack_action.rb'
 
 describe AttackAction do
   let(:hero) { double("hero", strength: 3,
-   gain_exp: nil, gain_cold: nil, damage: nil) }
+   gain_exp: nil, gain_gold: nil, damage: nil) }
   let(:dicepool) { double("dicepool") }
   let(:action) { AttackAction.new hero}
   let(:monster) { double("monster", toughness: 2, kill: nil,
-    damage: 4) }
+    damage: 4, exp: 10, gold: 20) }
 
   it_behaves_like "actionable"   
    
@@ -30,7 +30,7 @@ describe AttackAction do
       end
       
       it "rewards owner with cold" do
-        hero.should_receive(:gain_cold)
+        hero.should_receive(:gain_gold)
         action.activate(monster)
       end
     end
