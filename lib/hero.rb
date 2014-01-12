@@ -24,8 +24,16 @@
     @fled
   end
 
+  def dead?
+    @health <= 0
+  end
+
   def flee
     @fled = true
+  end
+
+  def reset_flee
+    @fled = false
   end
   
   def activate_action(action_name, target)
