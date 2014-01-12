@@ -3,10 +3,10 @@ require_relative '../../lib/action.rb'
 
 class TestAction
   include Actionable
-	def action_attributes
-		@attribute = :strength
-		@defficulty = :toughness
-	end
+  def action_attributes
+    @attribute = :strength
+    @defficulty = :toughness
+  end
 end
 
 describe Actionable do
